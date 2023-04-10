@@ -19,7 +19,14 @@ const MyForm = ({user}) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Enviando o formulário");
-    console.log(name,email);
+    console.log(name, email);
+
+    // VALIDAÇÃO
+    // ENVIO
+
+    // 7 - LIMPAR FORMULÁRIO
+    setName("");
+    setEmail("");
   }
 
   return (
@@ -37,7 +44,7 @@ const MyForm = ({user}) => {
             onChange={handleName}
             value={name}
           />
-  
+
               </div>
                         {/* 2 - LABEL ENVOLVENDO  INPUT */}
               <label>
