@@ -9,6 +9,8 @@ const MyForm = ({user}) => {
   const [name, setName] = useState(user ? user.name : "");
   const [email, setEmail] = useState(user ? user.email : "");
 
+  const [bio, setBio] = useState("");
+
   const handleName = (e) => {
     setName(e.target.value);
   }
@@ -19,7 +21,7 @@ const MyForm = ({user}) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Enviando o formulário");
-    console.log(name, email);
+    console.log(name, email, bio);
 
     // VALIDAÇÃO
     // ENVIO
@@ -27,6 +29,7 @@ const MyForm = ({user}) => {
     // 7 - LIMPAR FORMULÁRIO
     setName("");
     setEmail("");
+    setBio("");
   }
 
   return (
@@ -36,7 +39,7 @@ const MyForm = ({user}) => {
           {/* 1 - CRIAÇÃO DE FORM */}
           <form onSubmit={handleSubmit}>
               <div>
-                  <label htmlFor="name">Nome:</label>
+              <label htmlFor="name">Nome:</label>
           <input
             type="text"
             name="name"
@@ -46,10 +49,10 @@ const MyForm = ({user}) => {
           />
 
               </div>
-                        {/* 2 - LABEL ENVOLVENDO  INPUT */}
+          {/* 2 - LABEL ENVOLVENDO  INPUT */}
               <label>
           <span>E-mail</span>
-                        {/* 4 - SIMPLIFICAÇÃO DE MANIPULAÇÃO DE STATE  */}
+          {/* 4 - SIMPLIFICAÇÃO DE MANIPULAÇÃO DE STATE  */}
 
           <input
             type="email"
@@ -58,8 +61,18 @@ const MyForm = ({user}) => {
             onChange={(e) => setEmail(e.target.value)}
             value={email}
           />
-                </label>
-              <input type="submit" value="Enviar" />
+        </label>
+
+        {/* 8 - TEXTAREA  */}
+        <label>
+          <span>Bio:</span>
+          <textarea
+            name="bio"
+            placeholder='Descrição do usuário'
+            onChange={(e) => setBio(e.target.value)}
+            value={bio}></textarea>
+        </label>
+        <input type="submit" value="Enviar" />
           </form>
     </div>
   )
